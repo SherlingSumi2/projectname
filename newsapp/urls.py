@@ -4,8 +4,9 @@ from .views import home, category_news
 
 urlpatterns = [
     path('', home, name='home'),
-    path('category/<slug:slug>/', category_news, name='category'),
+    path('category/<slug:slug>/',views.category_news,name='category'),
     path('news/<int:id>/', views.news_detail, name='news_detail'),
     path('about/', views.about, name="about"),
+    path('topics/tag/<slug:slug>/',views.tag_news,name='tag_news'),
 ]
 

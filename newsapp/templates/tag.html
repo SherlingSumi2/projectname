@@ -1,10 +1,11 @@
+
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gtv News Kerala | Breaking News Malayalam | Latest Malayalam News</title>
+    <title>Gtv News Kerala | Trivandrum News | Breaking News Malayalam | Latest Malayalam News</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -24,13 +25,26 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
         <!-- Left: News Channel Info -->
         <div class="topbar-news">
-            <span class="live-dot"></span>
-            <span class="topbar-label">GTV NEWS</span>
-            <span class="topbar-divider">|</span>
-            <span>Breaking News</span>
-            <span class="topbar-divider">|</span>
-            <span>Latest Updates</span>
-        </div>
+
+    <span class="live-dot"></span>
+
+    <span class="topbar-label">
+        24×7 NEWS
+    </span>
+
+    <span class="topbar-divider mobile-hide">|</span>
+
+    <span class="mobile-hide">
+        Breaking News
+    </span>
+
+    <span class="topbar-divider mobile-hide">|</span>
+
+    <span class="mobile-hide">
+        Latest Updates
+    </span>
+
+</div>
 
         <!-- Right: Social Media -->
         <div class="topbar-social">
@@ -148,6 +162,9 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
                     </li>
 
 
+                    
+
+
                     <!-- 7 SPORTS -->
                     <li class="nav-item">
                         <a class="nav-link"
@@ -238,153 +255,165 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
 <body>
 
-<!-- =========================================
-     CATEGORY NEWS PAGE
-========================================= -->
+<div class="topic-page">
 
-<section class="category-news-page">
+    <div class="topic-container">
 
-    <div class="category-news-container">
 
-        <!-- NEWS LIST -->
-        <div class="category-news-list">
+        <!-- =====================================
+             BREADCRUMB
+        ====================================== -->
+
+        <div class="topic-breadcrumb">
+            <a href="{% url 'home' %}">Home</a>
+            
+            <span> / </span>
+            <strong>{{ tag_name }}</strong>
+        </div>
+
+
+        <!-- =====================================
+             TOPIC HEADING
+        ====================================== -->
+
+        <div class="topic-heading">
+
+            <span class="topic-heading-line"></span>
+
+            <h1>
+                {{ tag_name }}
+            </h1>
+
+        </div>
+
+
+        <div class="topic-count">
+
+            {{ news_list|length }} news
+
+        </div>
+
+
+        <!-- =====================================
+             NEWS LIST
+        ====================================== -->
+
+        <div class="topic-news-list">
 
             {% for news in news_list %}
 
-            <article class="category-news-card">
-
-                <!-- IMAGE -->
-                <div class="category-news-image">
-
-                    <a href="{% url 'news_detail' news.id %}">
-
-                        {% if news.video and news.video.name %}
-
-                            <video muted playsinline preload="metadata">
-                                <source src="{{ news.video.url }}"
-                                        type="video/mp4">
-                            </video>
-
-                        {% elif news.image and news.image.name %}
-
-                            <img src="{{ news.image.url }}"
-                                 alt="{{ news.title }}">
-
-                        {% endif %}
-
-                    </a>
-
-                </div>
+                <article class="topic-news-card">
 
 
-                <!-- CONTENT -->
-                <div class="category-news-content">
+                    <!-- IMAGE -->
 
-                    <!-- CATEGORY -->
-                    <a href="{% url 'category' news.category.slug %}"
-                       class="category-news-category">
-
-                        {{ news.category.name|upper }}
-
-                    </a>
-
-
-                    <!-- TITLE -->
-                    <h2 class="category-news-title">
+                    <div class="topic-news-image">
 
                         <a href="{% url 'news_detail' news.id %}">
 
-                            {{ news.title }}
+                            {% if news.image %}
+
+                                <img
+                                    src="{{ news.image.url }}"
+                                    alt="{{ news.title }}"
+                                >
+
+                            {% elif news.video %}
+
+                                <video
+                                    src="{{ news.video.url }}"
+                                    muted
+                                    playsinline
+                                ></video>
+
+                            {% endif %}
 
                         </a>
 
-                    </h2>
+                    </div>
 
 
-                    <!-- DESCRIPTION -->
-                    <p class="category-news-description">
+                    <!-- CONTENT -->
 
-                        {{ news.content|truncatewords:25 }}
-
-                    </p>
+                    <div class="topic-news-content">
 
 
-                    <!-- META -->
-                    <div class="category-news-meta">
+                        <!-- CATEGORY -->
 
-                        <!-- TIME -->
-                        <span class="category-meta-item">
+                        {% if news.category %}
 
-                            <i class="bx bx-time-five"></i>
+                            <div class="topic-category">
+                                {{ news.category.name }}
+                            </div>
 
-                            {{ news.created_at|timesince }} ago
-
-                        </span>
+                        {% endif %}
 
 
-                        <!-- RIGHT SIDE ACTIONS -->
-                        <div class="category-news-actions">
+                        <!-- TITLE -->
 
-                            <!-- LIKE -->
-                            <button type="button"
-                                    class="category-action like-btn">
+                        <h2>
 
-                                <i class="bx bx-like like-icon"></i>
+                            <a href="{% url 'news_detail' news.id %}">
+                                {{ news.title }}
+                            </a>
 
-                                <span class="like-count">
-                                    {{ news.likes }}K
-                                </span>
-
-                            </button>
+                        </h2>
 
 
-                            <!-- VIEW -->
-                            <span class="category-action">
+                        <!-- DESCRIPTION -->
 
+                        <p class="topic-news-description">
+
+                            {{ news.content|striptags|truncatewords:28 }}
+
+                        </p>
+
+
+                        <!-- META -->
+
+                        <div class="topic-news-meta">
+
+                            <span>
+                                <i class="bx bx-time-five"></i>
+                                {{ news.created_at|timesince }} ago
+                            </span>
+
+                            <span>
+                                <i class="bx bx-like"></i>
+                                {{ news.likes }}
+                            </span>
+
+                            <span>
                                 <i class="bx bx-show"></i>
-
-                                <span>
-                                    {{ news.views }}K
-                                </span>
-
+                                {{ news.views }}
                             </span>
 
 
-                            <!-- SHARE -->
-                            <button type="button"
-                                    class="category-action category-share-btn"
-                                    onclick="shareNews(
-                                        event,
-                                        '{{ news.title|escapejs }}',
-                                        '{% url 'news_detail' news.id %}'
-                                    )">
-
+                            <button
+                                type="button"
+                                class="topic-news-share"
+                                onclick="shareNews(
+                                    event,
+                                    '{{ news.title|escapejs }}',
+                                    '{% url 'news_detail' news.id %}'
+                                )"
+                            >
                                 <i class="bx bx-share-alt"></i>
-
-                                <span>Share</span>
-
+                                Share
                             </button>
 
                         </div>
 
                     </div>
 
-                </div>
-
-            </article>
+                </article>
 
 
             {% empty %}
 
-                <div class="category-empty">
+                <div class="topic-empty">
 
-                    <i class="bx bx-news"></i>
-
-                    <h3>No news available</h3>
-
-                    <p>
-                        There are currently no news articles in this category.
-                    </p>
+                    No news available for this topic.
 
                 </div>
 
@@ -394,24 +423,11 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
     </div>
 
-</section>
-
-<!-- bottom ad -->
-{% if bottom_ad %}
-<div class="middle-ad">
-    <span class="ad-label">Advertisement</span>
-
-    {% if bottom_ad.link %}
-        <a href="{{ bottom_ad.link }}" target="_blank" rel="noopener">
-            <img src="{{ bottom_ad.image.url }}" alt="Bottom Banner">
-        </a>
-    {% else %}
-        <img src="{{ bottom_ad.image.url }}" alt="Bottom Banner">
-    {% endif %}
 </div>
-{% endif %}
 
-</body>
+
+
+
 
 <!--FOOTER -->
 <footer class="news-footer">

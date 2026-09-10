@@ -4,12 +4,12 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Channel</title>
+    <title>Gtv News Kerala | Trivandrum News | Breaking News Malayalam | Latest Malayalam News</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
     .navbar-toggler-icon{
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -18,369 +18,1066 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
 </head>
 
-<!-- TOP HEADER --> 
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="topbar-container">
 
-<header class="top-header p-2">
-<div class="header-row">
+        <!-- Left: News Channel Info -->
+        <div class="topbar-news">
 
-<!-- LOGO -->
-<div class="logo-box p-1">
-<a href="{% url 'home' %}">
-<img src="{% static 'images/Logo2.png' %}" alt="Logo">
-</a>
+    <span class="live-dot"></span>
+
+    <span class="topbar-label">
+        24×7 NEWS
+    </span>
+
+    <span class="topbar-divider mobile-hide">|</span>
+
+    <span class="mobile-hide">
+        Breaking News
+    </span>
+
+    <span class="topbar-divider mobile-hide">|</span>
+
+    <span class="mobile-hide">
+        Latest Updates
+    </span>
+
 </div>
 
-<!-- TOGGLE BUTTON -->
-<div class="toggle-box">
+        <!-- Right: Social Media -->
+        <div class="topbar-social">
 
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-<span class="navbar-toggler-icon"></span>
-</button>
+            <a href="#" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
 
-</div>
-</div>
+            <a href="#" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
 
-<hr>
+            <a href="#" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
 
-<!-- MENU -->
-<nav class="navbar navbar-expand-lg">
+        </div>
 
-<div class="container">
-
-<div class="collapse navbar-collapse" id="navbarMenu">
-
-<ul class="navbar-nav ms-auto">
-
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'home' %}">Home</a></li>
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'category' 'global' %}">Global</a></li>
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'category' 'local' %}">Local</a></li>
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'category' 'food' %}">Food</a></li>
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'category' 'health' %}">Health</a></li>
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'category' 'articles' %}">Articles</a></li>
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'category' 'business' %}">Business</a></li>
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'category' 'sports' %}">Sports</a></li>
-<li class="nav-item"><a class="nav-link fw-bold" href="{% url 'about' %}">About</a></li>
-
-</ul>
-
-<div class="today-date">
-        {{ today|date:"l, d M Y" }}
     </div>
+</div>
 
-</nav>
+<!-- TOP HEADER -->
+<header class="top-header">
+
+    <div class="header-row">
+
+        <!-- LOGO -->
+        <div class="brand-box">
+    <a href="{% url 'home' %}" class="brand-link">
+
+        <div class="logo-box">
+            <img src="{% static 'images/GTV NEWS LOGO.png' %}"
+                 alt="GTV News Logo">
+        </div>
+
+        <div class="brand-text">
+            <span class="brand-name">GTV NEWS</span>
+            <span class="brand-location">Trivandrum</span>
+        </div>
+
+    </a>
+</div>
+
+
+        <!-- MOBILE MENU BUTTON -->
+        <button class="navbar-toggler mobile-toggle"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <!-- NAVIGATION -->
+        <nav class="navbar navbar-expand-lg menu-box">
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+
+                <ul class="navbar-nav mx-auto">
+
+                    <!-- 1 HOME -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">
+                            Home
+                        </a>
+                    </li>
+
+
+                    <!-- 2 KERALA -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'category' 'kerala' %}">
+                            Kerala
+                        </a>
+                    </li>
+
+                    <!-- 3 BUSINESS -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'category' 'trivandrum' %}">
+                            Trivandrum
+                        </a>
+                    </li>
+
+
+                    <!-- 3 NATIONAL -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'category' 'national' %}">
+                            National
+                        </a>
+                    </li>
+
+
+                    <!-- 4 WORLD -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'category' 'world' %}">
+                            World
+                        </a>
+                    </li>
+
+
+                    <!-- 5 POLITICS -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'category' 'politics' %}">
+                            Politics
+                        </a>
+                    </li>
+
+
+                    
+
+
+                    <!-- 7 SPORTS -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'category' 'sports' %}">
+                            Sports
+                        </a>
+                    </li>
+
+
+                    <!-- 8 CINEMA -->
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'category' 'cinema' %}">
+                            Cinema
+                        </a>
+                    </li>
+
+
+                    <!-- MORE DROPDOWN -->
+<li class="nav-item dropdown more-menu">
+
+    <a class="nav-link more-link"
+       href="#"
+       id="moreDropdown"
+       role="button"
+       data-bs-toggle="dropdown"
+       aria-expanded="false">
+
+        More
+
+        <i class="bx bx-chevron-down more-icon"></i>
+
+    </a>
+
+    <ul class="dropdown-menu more-dropdown"
+        aria-labelledby="moreDropdown">
+
+        {% for category in navbar_categories %}
+
+            {% if category.slug != 'trivandrum' %}
+
+            <li>
+                <a class="dropdown-item"
+                   href="{% url 'category' category.slug %}">
+
+                    <span class="more-item-dot"></span>
+
+                    {{ category.name }}
+
+                </a>
+            </li>
+
+            {% endif %}
+
+        {% endfor %}
+
+    </ul>
+
+</li>
+
+
+                </ul>
+
+            </div>
+
+        </nav>
+
+
+        <!-- DATE + LIVE TIME -->
+        <div class="header-datetime">
+
+            <div class="today-date">
+                {{ today|date:"l, d M Y" }}
+            </div>
+
+            <span class="datetime-divider"></span>
+
+            <div class="live-time">
+                <span class="time-dot"></span>
+                <span id="liveClock">00:00:00 AM</span>
+            </div>
+
+        </div>
+
+    </div>
 
 </header>
 
-
 <body>
 
-<!-- SMALL SLIDER -->
 <div class="swiper mySwiper small-chip-slider">
+
     <div class="swiper-wrapper">
 
         {% for s in sliders %}
+
         <div class="swiper-slide">
-            <div class="chip-card">
-                <img src="{{ s.image.url }}" alt="{{ s.title }}">
-                <span>{{ s.title }}</span>
-            </div>
+
+            <a
+                href="{% url 'tag_news' s.title|slugify %}"
+                class="chip-card"
+            >
+
+                {% if s.image %}
+                    <img
+                        src="{{ s.image.url }}"
+                        alt="{{ s.title }}"
+                    >
+                {% endif %}
+
+                <span>
+                    {{ s.title }}
+                </span>
+
+            </a>
+
         </div>
+
         {% endfor %}
 
     </div>
+
 </div>
 
 
-<!-- AD BANNER -->
+<!-- top banner -->
 {% if banner_ad %}
 <div class="slider-ad">
     <span class="ad-label">Advertisement</span>
 
-    <a href="{{ banner_ad.link }}" target="_blank">
-        <img src="{{ banner_ad.image.url }}" alt="{{ banner_ad.title }}">
-    </a>
-
-    <!-- <h4 class="ad-title">{{ banner_ad.title }}</h4> -->
+    {% if banner_ad.link %}
+        <a href="{{ banner_ad.link }}" target="_blank" rel="noopener">
+            <img src="{{ banner_ad.image.url }}" alt="Top Banner">
+        </a>
+    {% else %}
+        <img src="{{ banner_ad.image.url }}" alt="Top Banner">
+    {% endif %}
 </div>
 {% endif %}
 
-<div class="container">
+<!-- News -->
+<div class="container news-page-container">
 
-<!-- COLUMN 1 – WEEKEND SPECIAL -->
-<div class="weekend-news">
-    <h3 class="section-title">Weekend Special</h3>
+<!-- COLUMN 1 – Breaking news -->
+<div class="breaking-news-section">
 
-    {% for news in weekend_news %}
-    <div class="news-row">
-        <div class="news-text">
-            <a href="{% url 'category'  news.category.slug %}">
-            <span class="news-category">
-                {{ news.category.name|upper }}
-            </span>
-            </a>
-            <a href="{% url 'news_detail' news.id %}" class="news-link">
-                <h4>{{ news.title }}</h4>
-                <p>{{ news.content|truncatewords:10 }}</p>
-            </a>
-            <div class="d-flex justify-content-between align-items-center">
-    
-    <span class="news-time">
-        {{ news.created_at|timesince }} ago
-    </span>
+    <h3 class="breaking-section-title">
+        Breaking News
+    </h3>
 
-    <div class="d-flex gap-3">
-    <span class="like-btn">
-    <i class="bx bx-like like-icon"></i>
-    <span class="like-count">{{ news.likes }}K</span></span>
-    <span><i class="bx bx-show"></i>{{ news.views }}K</span>
-</div>
+    <div class="breaking-news-list">
 
-</div>
-        </div>
+        {% for news in weekend_news %}
 
-        <div class="news-thumb">
-    <a href="{% url 'news_detail' news.id %}">
-        <img src="{{ news.image.url }}" alt="{{ news.title }}">
-    </a>
-</div>
+        <article class="breaking-news-card">
+
+            <!-- LEFT : TEXT -->
+            <div class="breaking-news-content">
+
+                <!-- CATEGORY -->
+                <a href="{% url 'category' news.category.slug %}"
+                   class="breaking-category">
+                    {{ news.category.name|upper }}
+                </a>
+
+                <!-- TITLE -->
+                <a href="{% url 'news_detail' news.id %}"
+                   class="breaking-title-link">
+
+                    <h4 class="breaking-news-title">
+                        {{ news.title }}
+                    </h4>
+
+                </a>
+
+                <!-- META -->
+                <div class="breaking-news-meta">
+
+                    <span class="breaking-time">
+                        {{ news.created_at|timesince }} ago
+                    </span>
+
+                    <div class="breaking-actions">
+
+                        <span class="breaking-action">
+                            <i class="bx bx-like"></i>
+                            <span>{{ news.likes }}K</span>
+                        </span>
+
+                        <span class="breaking-action">
+                            <i class="bx bx-show"></i>
+                            <span>{{ news.views }}K</span>
+                        </span>
+
+                        <a href="#"
+                           class="breaking-action breaking-share"
+                           onclick="shareNews(event, '{{ news.title|escapejs }}', '{% url 'news_detail' news.id %}')">
+
+                            <i class="bx bx-share-alt"></i>
+                            <span>Share</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT : IMAGE -->
+            <div class="breaking-news-image">
+
+                <a href="{% url 'news_detail' news.id %}">
+
+                    {% if news.image %}
+                        <img src="{{ news.image.url }}"
+                             alt="{{ news.title }}">
+                    {% endif %}
+
+                </a>
+
+            </div>
+
+        </article>
+
+        {% empty %}
+
+        <p class="no-breaking-news">
+            No breaking news available.
+        </p>
+
+        {% endfor %}
+
     </div>
-    {% endfor %}
+
 </div>
 
 
 <!-- COLUMN 2 – MAIN NEWS -->
 <div class="main-news-column">
 
+    <!-- FEATURED / BIG NEWS -->
     {% if main_news_big %}
-    <div class="main-news big-news">
-        <a href="{% url 'news_detail' main_news_big.id %}">
-        <h2>{{ main_news_big.title }}</h2>
-    </a>
-        <a href="{% url 'news_detail' main_news_big.id %}">
-    {% if main_news_big.video %}
-    <video width="100%" controls>
-        <source src="{{ main_news_big.video.url }}" type="video/mp4">
-    </video>
-{% elif main_news_big.image %}
-    <img src="{{ main_news_big.image.url }}">
-{% endif %}
-    </a>
-    <a href="{% url 'news_detail' main_news_big.id %}">
-        <p>{{ main_news_big.content|truncatewords:40 }}</p>
-    </a>
-    </div>
+
+    <article class="featured-news-card">
+
+        <!-- FEATURED TITLE -->
+        <a href="{% url 'news_detail' main_news_big.id %}"
+           class="featured-title-link">
+
+            <h2 class="featured-news-title">
+                {{ main_news_big.title }}
+            </h2>
+
+        </a>
+
+
+        <!-- FEATURED IMAGE / VIDEO -->
+        <a href="{% url 'news_detail' main_news_big.id %}"
+           class="featured-media">
+
+            {% if main_news_big.video %}
+
+                <video controls>
+                    <source src="{{ main_news_big.video.url }}"
+                            type="video/mp4">
+                </video>
+
+            {% elif main_news_big.image %}
+
+                <img src="{{ main_news_big.image.url }}"
+                     alt="{{ main_news_big.title }}">
+
+            {% endif %}
+
+        </a>
+
+
+        <!-- FEATURED CONTENT -->
+        <a href="{% url 'news_detail' main_news_big.id %}"
+           class="featured-description">
+
+            <p>
+                {{ main_news_big.content }}
+            </p>
+
+        </a>
+
+    </article>
+
     {% endif %}
 
+
+
+    <!-- =========================================
+         OTHER MAIN NEWS
+         ========================================= -->
+
+    <div class="main-news-list">
+
         {% for news in main_news_list %}
-    <div class="news-row small-main-news">
-        <div class="news-text">
-            <a href="{% url 'category'  news.category.slug %}">
-            <span class="news-category">
-                {{ news.category.name|upper }}
-            </span>
-            </a>
-            <h4>
-    <a href="{% url 'news_detail' news.id %}">
-        {{ news.title }}
-    </a>
-</h4>
-            <a href="{% url 'news_detail' news.id %}">
-            <p>{{ news.content|truncatewords:40 }}</p></a>
-            <div class="d-flex justify-content-between align-items-center">
-    
-    <span class="news-time">
-        {{ news.created_at|timesince }} ago
-    </span>
 
-    <div class="d-flex gap-3">
-    <span class="like-btn">
-    <i class="bx bx-like like-icon"></i>
-    <span class="like-count">{{ news.likes }}K</span></span>
-    <span><i class="bx bx-show"></i>{{ news.views }}K</span>
-</div>
+        <article class="main-list-card">
 
-</div>
-        </div>
 
-        <div class="news-thumb">
-            <a href="{% url 'news_detail' news.id %}">
-    {% if news.video %}
-    <video width="150" controls>
-        <source src="{{ news.video.url }}" type="video/mp4">
-    </video>
-{% elif news.image %}
-    <img src="{{ news.image.url }}">
-{% endif %}
-</a>
-        </div>
+            <!-- TEXT -->
+            <div class="main-list-content">
+
+                <!-- CATEGORY -->
+                <a href="{% url 'category' news.category.slug %}"
+                   class="main-list-category">
+
+                    {{ news.category.name|upper }}
+
+                </a>
+
+
+                <!-- TITLE -->
+                <a href="{% url 'news_detail' news.id %}"
+                   class="main-list-title-link">
+
+                    <h3 class="main-list-title">
+                        {{ news.title }}
+                    </h3>
+
+                </a>
+
+
+                <!-- META -->
+                <div class="main-list-meta">
+
+                    <span class="main-list-time">
+                        {{ news.created_at|timesince }} ago
+                    </span>
+
+
+                    <div class="main-list-actions">
+
+                        <span class="main-list-action">
+                            <i class="bx bx-like"></i>
+                            <span>{{ news.likes }}K</span>
+                        </span>
+
+
+                        <span class="main-list-action">
+                            <i class="bx bx-show"></i>
+                            <span>{{ news.views }}K</span>
+                        </span>
+
+
+                        <a href="#"
+                           class="main-list-action main-list-share"
+                           onclick="shareNews(event, '{{ news.title|escapejs }}', '{% url 'news_detail' news.id %}')">
+
+                            <i class="bx bx-share-alt"></i>
+                            <span>Share</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE -->
+            <div class="main-list-image">
+
+                <a href="{% url 'news_detail' news.id %}">
+
+                    {% if news.video %}
+
+                        <video controls>
+                            <source src="{{ news.video.url }}"
+                                    type="video/mp4">
+                        </video>
+
+                    {% elif news.image %}
+
+                        <img src="{{ news.image.url }}"
+                             alt="{{ news.title }}">
+
+                    {% endif %}
+
+                </a>
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
     </div>
-    {% endfor %}
 
 </div>
 
 
-<!-- COLUMN 3 – AD + POPULAR -->
+<!-- COLUMN 3 – AD + QUICK UPDATES -->
 <div class="right-column">
 
     {% if right_ad %}
     <div class="side-ad">
-        <span class="ad-label" style="text-align: center;">Advertisement</span>
-        <a href="{{ right_ad.link }}" target="_blank">
-            <img src="{{ right_ad.image.url }}" alt="{{ right_ad.title }}">
-        </a>
+
+        <span class="ad-label">
+            Advertisement
+        </span>
+
+        {% if right_ad.link %}
+            <a href="{{ right_ad.link }}" target="_blank" rel="noopener">
+                <img src="{{ right_ad.image.url }}" alt="Right Banner">
+            </a>
+        {% else %}
+            <img src="{{ right_ad.image.url }}" alt="Right Banner">
+        {% endif %}
+
     </div>
     {% endif %}
 
-    <h3 class="section-title">Popular Articles</h3>
 
-    {% for news in popular_news %}
-    <div class="news-row">
-        <div class="news-text">
-            <a href="{% url 'category'  news.category.slug %}">
-            <span class="news-category">
-                {{ news.category.name|upper }}
-            </span>
-            </a>
-            <h4>
-    <a href="{% url 'news_detail' news.id %}">
-        {{ news.title }}
-    </a>
-</h4>
-            <div class="d-flex justify-content-between align-items-center">
-    
-    <span class="news-time">
-        {{ news.created_at|timesince }} ago
-    </span>
+    <!-- QUICK UPDATES -->
+    <div class="quick-updates">
 
-    <div class="d-flex gap-3">
-    <span class="like-btn">
-    <i class="bx bx-like like-icon"></i>
-    <span class="like-count">{{ news.likes }}K</span></span>
-    <span><i class="bx bx-show"></i>{{ news.views }}K</span>
-</div>
+        <h3 class="section-title">
+            Quick Updates
+        </h3>
 
-</div>
+
+        {% for news in popular_news %}
+
+        <div class="quick-news-card">
+
+            <!-- TEXT -->
+            <div class="quick-news-content">
+
+                <!-- CATEGORY -->
+                <a href="{% url 'category' news.category.slug %}"
+                   class="quick-category-link">
+
+                    <span class="quick-category">
+                        {{ news.category.name|upper }}
+                    </span>
+
+                </a>
+
+
+                <!-- TITLE -->
+                <h4 class="quick-news-title">
+
+                    <a href="{% url 'news_detail' news.id %}">
+                        {{ news.title }}
+                    </a>
+
+                </h4>
+
+
+                <!-- META -->
+                <div class="quick-news-meta">
+
+                    <span class="quick-news-time">
+                        {{ news.created_at|timesince }} ago
+                    </span>
+
+
+                    <div class="quick-news-actions">
+
+                        <!-- LIKE -->
+                        <span>
+                            <i class="bx bx-like"></i>
+                            {{ news.likes }}K
+                        </span>
+
+
+                        <!-- VIEWS -->
+                        <span>
+                            <i class="bx bx-show"></i>
+                            {{ news.views }}K
+                        </span>
+
+
+                        <!-- SHARE -->
+                        <span class="quick-share">
+
+                            <i class="bx bx-share-alt"></i>
+                            Share
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE RIGHT SIDE -->
+            <div class="quick-news-image">
+
+                <a href="{% url 'news_detail' news.id %}">
+
+                    {% if news.image %}
+                        <img src="{{ news.image.url }}"
+                             alt="{{ news.title }}">
+                    {% endif %}
+
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="news-thumb">
-            <a href="{% url 'news_detail' news.id %}"><img src="{{ news.image.url }}">
-</a>
-        </div>
+        {% endfor %}
+
     </div>
-    {% endfor %}
-</div>
 
 </div>
 
-{% if bottom_ad %}
+</div>
+
+
+<!-- middle ad -->
+{% if middle_ad %}
 <div class="bottom-ad">
     <span class="ad-label">Advertisement</span>
-    <a href="{{ bottom_ad.link }}" target="_blank">
-        <img src="{{ bottom_ad.image.url }}" alt="{{ bottom_ad.title }}">
-    </a>
+
+    {% if middle_ad.link %}
+        <a href="{{ middle_ad.link }}" target="_blank" rel="noopener">
+            <img src="{{ middle_ad.image.url }}" alt="Middle Banner">
+        </a>
+    {% else %}
+        <img src="{{ middle_ad.image.url }}" alt="Middle Banner">
+    {% endif %}
 </div>
 {% endif %}
 
+<!--LOCAL NEWS-->
+{% if local_news %}
+<section class="local-news-section">
 
-<!-- BUSINESS SECTION -->
-<div class="business-section">
-
-    <h3 class="section-title ms-3">Business</h3>
-
-    <div class="business-grid">
-        {% for news in business_news %}
-        <div class="business-card">
-            <img src="{{ news.image.url }}">
-            <h4>{{ news.title }}</h4>
-            <p>{{ news.content|truncatewords:12 }}</p>
+    <div class="local-news-header">
+        <div class="local-news-title-wrap">
+            <span class="local-news-accent"></span>
+            <h2>Local News</h2>
         </div>
-        {% endfor %}
     </div>
 
-</div>
+    <div class="local-news-grid">
 
-{% if business_bottom_ad %}
-<div class="business-bottom-ad">
+        {% for news in local_news %}
+
+        <article class="local-news-card">
+
+            <!-- IMAGE -->
+            <a href="{% url 'news_detail' news.id %}"
+               class="local-news-image">
+
+                {% if news.image %}
+                    <img src="{{ news.image.url }}"
+                         alt="{{ news.title }}">
+                {% elif news.video %}
+                    <video muted playsinline>
+                        <source src="{{ news.video.url }}"
+                                type="video/mp4">
+                    </video>
+                {% endif %}
+
+            </a>
+
+
+            <!-- CONTENT -->
+            <div class="local-news-content">
+
+                <!-- CATEGORY -->
+                <a href="{% url 'category' news.category.slug %}"
+                   class="local-news-category">
+                    {{ news.category.name|upper }}
+                </a>
+
+
+                <!-- TITLE -->
+                <a href="{% url 'news_detail' news.id %}"
+                   class="local-news-title-link">
+
+                    <h3>
+                        {{ news.title }}
+                    </h3>
+
+                </a>
+
+
+                <!-- META -->
+                <div class="local-news-meta">
+
+                    <span>
+                        <i class="bx bx-time-five"></i>
+                        {{ news.created_at|timesince }} ago
+                    </span>
+
+                    <span>
+                        <i class="bx bx-like"></i>
+                        {{ news.likes }}K
+                    </span>
+
+                    <span>
+                        <i class="bx bx-show"></i>
+                        {{ news.views }}K
+                    </span>
+
+                    <button
+                        type="button"
+                        class="local-news-share"
+                        onclick="shareNews(
+                            event,
+                            '{{ news.title|escapejs }}',
+                            '{% url 'news_detail' news.id %}'
+                        )">
+
+                        <i class="bx bx-share-alt"></i>
+                        Share
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+{% endif %}
+
+<!-- bottom ad -->
+{% if bottom_ad %}
+<div class="middle-ad">
     <span class="ad-label">Advertisement</span>
-    <a href="{{ business_bottom_ad.link }}" target="_blank">
-        <img src="{{ business_bottom_ad.image.url }}" alt="{{ business_bottom_ad.title }}">
-    </a>
+
+    {% if bottom_ad.link %}
+        <a href="{{ bottom_ad.link }}" target="_blank" rel="noopener">
+            <img src="{{ bottom_ad.image.url }}" alt="Bottom Banner">
+        </a>
+    {% else %}
+        <img src="{{ bottom_ad.image.url }}" alt="Bottom Banner">
+    {% endif %}
 </div>
 {% endif %}
 
 </body>
 
-<footer class="site-footer">
+<!--FOOTER -->
+<footer class="news-footer">
 
-    <div class="footer-container">
+    <div class="news-footer-container">
 
-        <!-- COLUMN 1 -->
-        <div class="footer-col">
-            <img src="{% static 'images/News logo.png' %}" alt="">
-            <p>
-                Latest breaking news, business, health, sports and global updates.
-                Stay informed with trusted journalism.
+        <!-- =====================================
+             COLUMN 1 - BRAND
+        ====================================== -->
+
+        <div class="news-footer-brand">
+
+            <a href="{% url 'home' %}" class="footer-logo-link">
+                <img
+                    src="{% static 'images/GTV NEWS LOGO.png' %}"
+                    alt="GTV News Kerala"
+                    class="footer-logo"
+                >
+            </a>
+
+            <p class="footer-description">
+                Latest breaking news, business, health, sports and global
+                updates. Stay informed with trusted journalism and the
+                latest developments from Kerala and around the world.
             </p>
+
+            <div class="footer-social">
+
+                <a href="https://wa.me/919999999999"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="WhatsApp">
+
+                    <i class="bx bxl-whatsapp"></i>
+
+                </a>
+
+                <a href="https://instagram.com/yourusername"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Instagram">
+
+                    <i class="bx bxl-instagram"></i>
+
+                </a>
+
+                <a href="https://facebook.com/yourusername"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Facebook">
+
+                    <i class="bx bxl-facebook"></i>
+
+                </a>
+
+                <!-- X / Twitter -->
+    <a href="https://x.com/yourusername"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="X">
+        <i class="bx bx-x"></i>
+    </a>
+
+                <!-- YouTube -->
+    <a href="https://www.youtube.com/@yourchannel"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="YouTube">
+        <i class="bx bxl-youtube"></i>
+    </a>
+
+            </div>
+
         </div>
 
-        <!-- COLUMN 2 – Categories -->
-        <div class="footer-col">
-            <h4>Categories</h4>
-            <ul>
-                <li><a href="{% url 'category'  'global' %}">Global</a></li>
-                <li><a href="{% url 'category'  'local' %}">Local</a></li>
-                <li><a href="{% url 'category'  'health' %}">Health</a></li>
-                <li><a href="{% url 'category'  'sports' %}">Sports</a></li>
-                <li><a href="{% url 'category'  'business' %}">Business</a></li>
+
+        <!-- =====================================
+             COLUMN 2 - CATEGORIES
+        ====================================== -->
+
+        <div class="news-footer-column">
+
+            <h4 class="footer-heading">
+                Categories
+            </h4>
+
+            <span class="footer-heading-line"></span>
+
+            <ul class="footer-menu">
+
+                <li>
+                    <a href="{% url 'category' 'global' %}">
+                        Kerala
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'category' 'local' %}">
+                        National
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'category' 'health' %}">
+                         World
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'category' 'sports' %}">
+                       Politics
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'category' 'business' %}">
+                        Sports
+                    </a>
+                </li>
+
             </ul>
+
         </div>
 
-        <!-- COLUMN 3 – Quick Links -->
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="#">Latest News</a></li>
-                <li><a href="#">Trending</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+
+        <!-- =====================================
+             COLUMN 3 - QUICK LINKS
+        ====================================== -->
+
+        <div class="news-footer-column">
+
+            <h4 class="footer-heading">
+                Quick Links
+            </h4>
+
+            <span class="footer-heading-line"></span>
+
+            <ul class="footer-menu">
+
+                <li>
+                    <a href="{% url 'home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'home' %}">
+                        Latest News
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'home' %}">
+                        Breaking News
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'home' %}">
+                        Trending
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+
             </ul>
+
         </div>
 
-        <!-- COLUMN 4 – Contact -->
-        <div class="footer-col">
-            <h4>Contact Us</h4>
-            <p>Email: info@mynewschannel.com</p>
-            <p>Phone: +91 98765 43210</p>
 
-            <div class="social-links">
-    
-    <!-- WhatsApp -->
-    <a href="https://wa.me/919999999999" target="_blank">
-        <i class='bx bxl-whatsapp' style="color: white;"></i>
-    </a>
+        <!-- =====================================
+             COLUMN 4 - CONTACT
+        ====================================== -->
 
-    <!-- Instagram -->
-    <a href="https://instagram.com/yourusername" target="_blank">
-        <i class='bx bxl-instagram' style="color: white;"></i>
-    </a>
+        <div class="news-footer-column footer-contact">
 
-    <!-- Facebook -->
-    <a href="https://facebook.com/yourusername" target="_blank">
-        <i class='bx bxl-facebook' style="color: white;"></i>
-    </a>
+            <h4 class="footer-heading">
+                Contact Us
+            </h4>
 
-    <a href="https://twitter.com/yourusername" target="_blank">
-    <i class='bx bxl-twitter' style="color: white;"></i>
-    </a>
+            <span class="footer-heading-line"></span>
 
-</div>
+
+            <!-- Address -->
+
+            <div class="footer-contact-item">
+
+                <i class="bx bx-map"></i>
+
+                <p>
+                    Near Ganesh Time Centre,<br>
+                    Sivasakthi Complex,<br>
+                    Balaramapuram,<br>
+                    Trivandrum - 695501
+                </p>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="footer-contact-item">
+
+                <i class="bx bx-envelope"></i>
+
+                <a href="mailto:gtvblpm@gmail.com">
+                    gtvblpm@gmail.com
+                </a>
+
+            </div>
+
+
+            <!-- Phone -->
+
+            <div class="footer-contact-item">
+
+                <i class="bx bx-phone"></i>
+
+                <div>
+
+                    <a href="tel:+919847230717">
+                        +91 9847230717
+                    </a>
+
+                    <br>
+
+                    <a href="tel:+919447077164">
+                        +91 9447077164
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-    <div class="footer-bottom">
-        © {{ now|date:"Y" }} My News Channel. All rights reserved.
+
+    <!-- =========================================
+         FOOTER BOTTOM
+    ========================================== -->
+
+    <div class="news-footer-bottom">
+
+        <div class="footer-bottom-inner">
+
+            <p class="footer-copyright">
+                Copyright © 2026 GTV News Kerala. All Rights Reserved
+            </p>
+
+            <p class="footer-designed">
+                Designed by
+                <span><a href="https://foxtonresearch.com/">Foxton Research Tech</a></span>
+            </p>
+
+        </div>
+
     </div>
 
 </footer>
@@ -410,37 +1107,157 @@ document.querySelectorAll('.like-btn').forEach(button => {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    new Swiper(".mySwiper", {
-        slidesPerView: "auto",
-        spaceBetween: 12,
-        centeredSlides: false,
-        loop: true,
-        grabCursor: true,
+    function updateClock() {
+        const clock = document.getElementById("liveClock");
 
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-        },
-
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                centeredSlides: true
-            },
-            576: {
-                slidesPerView: 2
-            },
-            768: {
-                slidesPerView: 3
-            },
-            992: {
-                slidesPerView: 5,
-                centeredSlides: false
-            }
+        if (!clock) {
+            return;
         }
-    });
+
+        const now = new Date();
+
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+
+        const ampm = hours >= 12 ? "PM" : "AM";
+
+        hours = hours % 12;
+        if (hours === 0) {
+            hours = 12;
+        }
+
+        hours = String(hours).padStart(2, "0");
+
+        clock.textContent =
+            hours + ":" +
+            minutes + ":" +
+            seconds + " " +
+            ampm;
+    }
+
+    // First update immediately
+    updateClock();
+
+    // Update every second
+    setInterval(updateClock, 1000);
 
 });
 </script>
 
+<script>
+function shareNews(event, title, url) {
+
+    // <a href="#"> click ஆனதும் page top போகாமல் prevent பண்ணும்
+    if (event) {
+        event.preventDefault();
+    }
+
+    // Relative URL → Full URL
+    const fullUrl = new URL(url, window.location.origin).href;
+
+    // Mobile / Supported browsers
+    if (navigator.share) {
+
+        navigator.share({
+            title: title,
+            text: title,
+            url: fullUrl
+        }).catch(function (error) {
+
+            // User share popup cancel செய்தால் எதுவும் செய்ய வேண்டாம்
+            if (error.name !== "AbortError") {
+                console.log("Share failed:", error);
+            }
+
+        });
+
+    } else {
+
+        // Desktop fallback
+        if (navigator.clipboard) {
+
+            navigator.clipboard.writeText(fullUrl)
+                .then(function () {
+
+                    alert("News link copied!");
+
+                })
+                .catch(function () {
+
+                    fallbackCopy(fullUrl);
+
+                });
+
+        } else {
+
+            fallbackCopy(fullUrl);
+
+        }
+    }
+}
+
+
+/* =========================================
+   FALLBACK COPY
+========================================= */
+
+function fallbackCopy(text) {
+
+    const textarea = document.createElement("textarea");
+
+    textarea.value = text;
+
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    try {
+
+        document.execCommand("copy");
+
+        alert("News link copied!");
+
+    } catch (error) {
+
+        prompt("Copy this link:", text);
+
+    }
+
+    document.body.removeChild(textarea);
+}
+</script>
+
+<script>
+    new Swiper(".mySwiper", {
+    slidesPerView: 5,
+    spaceBetween: 15,
+    loop: true,
+
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
+
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        576: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+        992: {
+            slidesPerView: 5,
+        }
+    }
+});
+</script>
+
 </html>
+ 
